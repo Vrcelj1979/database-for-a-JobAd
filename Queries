@@ -1,0 +1,17 @@
+SELECT COUNT(*), Lokacije.Regija AS Stevilo_poslov FROM Lokacije
+INNER JOIN Oglas ON Lokacije.'Lokacije ID'=Oglas.'Lokacije ID(Fk)' 
+GROUP BY Lokacije.'Lokacije ID'; 
+
+SELECT Podjetje.Naziv, Podjetje.Opis, Podrocje.Panoga FROM Oglas 
+INNER JOIN Podjetje ON Oglas.'Podjetje ID(Fk)'=Podjetje.'Podjetje ID'
+INNER JOIN Podrocje ON Oglas.'Podrocje ID(Fk)'=Podrocje.'Podrocje ID'
+WHERE Podjetje.Opis='Programiranje';
+
+SELECT Podrocje.Poklic, Uporabnik.Ime, Uporabnik.Priimek FROM Oglas 
+INNER JOIN Podrocje ON Oglas.'Podrocje ID(Fk)'=Podrocje.'Podrocje ID'
+INNER JOIN Uporabnik ON Oglas.'Uporabnik ID(Fk)'=Uporabnik.'Uporabnik ID'
+WHERE Podrocje.Poklic='Blagajnik'; 
+
+SELECT Oglas.Trajanje, COUNT(*) AS JOBS_FULL_TIME FROM Oglas
+WHERE Oglas.Trajanje='full-time'; 
+
